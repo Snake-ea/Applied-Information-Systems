@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Public Blog - создать статью</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/index.css">
+</head>
+<body>
+    <div class="header">
+        <img src="{{ STATIC_URL }}img/dpb-logo.png" alt="Логотип">
+        <div class="auth-links">
+            {% if request.user.is_anonymous %}
+                <a href="{% url login %}" class="auth-link">Вход</a>
+                <a href="{% url register %}" class="auth-link register-link">Регистрация</a>
+            {% else %}
+                <span class="user-greeting">Привет, {{ request.user.username }}!</span>
+                <a href="{% url logout %}" class="auth-link">Выход</a>
+            {% endif %}
+        </div>
+        <div class="archive-link">
+            <a href="{% url archive %}">Все статьи</a>
+        </div>
+    </div>
+
+    <div class="content create-post">
+        <h1>Написать новую статью</h1>
+        
+        <form method="POST" class="post-form">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="title">Название статьи:</label>
+                <input type="text" 
+                       id="title" 
+                       name="title" 
+                       placeholder="Введите название статьи" 
+                       value="{{ form.title }}"
+                       class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="text">Текст статьи:</label>
+                <textarea id="text" 
+                          name="text" 
+                          placeholder="Введите текст статьи" 
+                          class="form-control">{{ form.text }}</textarea>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" class="submit-btn">Сохранить статью</button>
+            </div>
+            
+            {% if form.errors %}
+            <div class="errors">
+                {{ form.errors }}
+            </div>
+            {% endif %}
+        </form>
+        
+        <a href="{% url archive %}" class="back-to-archive">← Вернуться к архиву</a>
+    </div>
+</body>
+</html>

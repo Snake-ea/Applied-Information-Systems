@@ -1,0 +1,434 @@
+/* Общие стили для всех страниц */
+body {
+    background: #1abc9c;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    min-height: 100px; /* Добавлено для лучшего отображения */
+    background: #1abc9c; /* Явно задаем фон */
+}
+
+.header img {
+    display: block;
+    width: 318px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ ССЫЛОК АВТОРИЗАЦИИ */
+.auth-links {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    z-index: 1000; /* Добавлено для гарантии отображения поверх других элементов */
+}
+
+.auth-link {
+    color: #ffffff !important; /* Добавлен !important для гарантии */
+    text-decoration: none;
+    font-size: 16px; /* Увеличен размер */
+    padding: 8px 16px; /* Увеличены отступы */
+    border: 2px solid #ffffff; /* Утолщена граница */
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background: transparent; /* Прозрачный фон */
+    font-weight: bold; /* Жирный шрифт */
+    display: inline-block; /* Для гарантии отображения */
+}
+
+.auth-link:hover {
+    background: #ffffff;
+    color: #1abc9c !important;
+    text-decoration: none;
+}
+
+.register-link {
+    background: #ffffff;
+    color: #1abc9c !important;
+    border: 2px solid #ffffff;
+}
+
+.register-link:hover {
+    background: transparent;
+    color: #ffffff !important;
+}
+
+.user-greeting {
+    color: #ffffff;
+    font-size: 16px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* Остальные стили остаются без изменений */
+.archive, .article-content, .content {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.one-post {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.one-post:last-child {
+    border-bottom: none;
+}
+
+.post-title a {
+    color: #333333;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.post-title a:hover {
+    text-decoration: underline;
+    color: #1abc9c;
+}
+
+.article-info {
+    display: flex;
+    justify-content: space-between;
+    color: #666666;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.article-author {
+    width: 50%;
+    float: left;
+}
+
+.article-created-date {
+    text-align: right;
+    width: 50%;
+}
+
+.article-text {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333333;
+}
+
+.back-to-archive {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #1abc9c;
+    text-decoration: none;
+}
+
+.back-to-archive:hover {
+    text-decoration: underline;
+}
+
+/* Стили для полной статьи */
+.article-full {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    color: #333333;
+}
+
+.article-full h1 {
+    color: #333333;
+    font-size: 32px;
+    margin-top: 0;
+}
+
+.article-text-full {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333333;
+}
+
+/* Стили для ссылки "Все статьи" */
+.archive-link {
+    margin-top: 10px;
+}
+
+.archive-link a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.archive-link a:hover {
+    text-decoration: underline;
+}
+
+/* Пустая страница (нет статей) */
+.archive p {
+    color: #333333;
+    text-align: center;
+    font-size: 18px;
+}
+
+.archive p a {
+    color: #1abc9c;
+    text-decoration: none;
+}
+
+.archive p a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для формы создания поста */
+.create-post {
+    background: #fff;
+    color: #333;
+}
+
+.create-post h1 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.post-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Tahoma, Arial, sans-serif;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #1abc9c;
+}
+
+textarea.form-control {
+    min-height: 200px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background: #1abc9c;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #16a085;
+}
+
+.errors {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Стили для ссылки создания новой статьи на странице архива */
+.create-post-link {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.create-post-link a {
+    display: inline-block;
+    background: #1abc9c;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.create-post-link a:hover {
+    background: #16a085;
+    text-decoration: none;
+}
+
+/* Стили для форм авторизации */
+.register-form, .login-form {
+    background: #fff;
+    color: #333;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.register-form h1, .login-form h1 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.auth-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.auth-links-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.auth-links-bottom p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.auth-links-bottom a {
+    color: #1abc9c;
+    text-decoration: none;
+}
+
+.auth-links-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Добавляем стили для заголовка поста с кнопкой */
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-title {
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* Стили для кнопки свернуть/развернуть */
+.fold-button {
+    background: #1abc9c;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+.fold-button:hover {
+    background: #16a085;
+}
+
+.fold-button.folded {
+    background: #e74c3c;
+}
+
+.fold-button.folded:hover {
+    background: #c0392b;
+}
+
+/* Стили для свернутого поста с использованием CSS-селекторов */
+.one-post.folded .article-author,
+.one-post.folded .article-created-date,
+.one-post.folded .article-text {
+    display: none;
+}
+
+/* Альтернативный вариант с анимацией */
+.one-post {
+    transition: all 0.3s ease;
+}
+
+.one-post.folded {
+    opacity: 0.8;
+}
+
+.one-post.folded .post-title a {
+    color: #1abc9c;
+}
+
+/* Стили для кнопки в зависимости от состояния */
+.fold-button {
+    background: #1abc9c;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.fold-button:hover {
+    background: #16a085;
+    transform: scale(1.05);
+}
+
+.fold-button.folded {
+    background: #e74c3c;
+}
+
+.fold-button.folded:hover {
+    background: #c0392b;
+}
+
+/* Анимация для плавного появления/исчезновения */
+.article-author,
+.article-created-date,
+.article-text {
+    transition: opacity 0.3s ease;
+}
+
+.one-post.folded .article-author,
+.one-post.folded .article-created-date,
+.one-post.folded .article-text {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}

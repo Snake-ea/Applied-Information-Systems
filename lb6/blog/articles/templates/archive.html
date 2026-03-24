@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Архив всех статей</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/index.css">
+</head>
+<body class="archive">
+    <div class="header">
+        <img src="{{ STATIC_URL }}img/dpb-logo.png" alt="Логотип">
+        <div class="auth-links">
+            {% if request.user.is_anonymous %}
+                <a href="{% url login %}" class="auth-link">Вход</a>
+                <a href="{% url register %}" class="auth-link register-link">Регистрация</a>
+            {% else %}
+                <span class="user-greeting">Привет, {{ request.user.username }}!</span>
+                <a href="{% url logout %}" class="auth-link">Выход</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="archive">
+        {% if not request.user.is_anonymous %}
+        <div class="create-post-link">
+            <a href="{% url create_post %}">+ Написать новую статью</a>
+        </div>
+        {% endif %}
+
+        {% for post in posts %}
+        <div class="one-post">
+            <h2 class="post-title">
+                <a href="{% url get_article article_id=post.id %}">{{ post.title }}</a>
+            </h2>
+
+            <div class="article-info">
+                <div class="article-author">{{ post.author.username }}</div>
+                <div class="article-created-date">{{ post.created_date|date:"d.m.Y" }}</div>
+            </div>
+
+            <p class="article-text">{{ post.get_excerpt }}</p>
+        </div>
+        {% empty %}
+        <p>Нет статей. 
+        {% if not request.user.is_anonymous %}
+            <a href="{% url create_post %}">Добавьте первую</a>
+        {% else %}
+            <a href="{% url login %}">Войдите</a> или <a href="{% url register %}">зарегистрируйтесь</a>, чтобы добавить статью
+        {% endif %}
+        </p>
+        {% endfor %}
+    </div>
+</body>
+</html>
